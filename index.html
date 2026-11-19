@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Guía práctica para estudiar verbos, pronombres y la forma negativa en guaraní.">
+  <title>Guía de Guaraní — Repaso y quiz</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f5f7;
+      --surface: #ffffff;
+      --surface-2: #f0f2f5;
+      --text: #17191d;
+      --muted: #69717d;
+      --line: #e2e5e9;
+      --accent: #2563eb;
+      --accent-soft: #eaf1ff;
+      --green: #16834a;
+      --green-soft: #e8f6ee;
+      --red: #c43e3e;
+      --red-soft: #fff0f0;
+      --shadow: 0 12px 30px rgba(20, 26, 38, .06);
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+    button { font: inherit; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(244,245,247,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(226,229,233,.85);
+    }
+    .topbar-inner {
+      width: min(100% - 32px, 980px); margin: auto; min-height: 64px;
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.03em; }
+    .brand-mark {
+      display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px;
+      background: #111827; color: #fff; font-size: 17px;
+    }
+    .brand small { display: block; color: var(--muted); font-size: 10px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; margin-top: -3px; }
+    .top-link { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 700; }
+    .top-link:hover { color: var(--accent); }
+    .container { width: min(100% - 32px, 860px); margin: 0 auto; }
+    .hero { padding: 34px 0 22px; }
+    .eyebrow { color: var(--accent); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 850; }
+    h1 { font-size: clamp(30px, 7vw, 48px); line-height: 1.04; letter-spacing: -.055em; margin: 10px 0 12px; max-width: 640px; }
+    .hero p { color: var(--muted); max-width: 590px; margin: 0; font-size: 15px; }
+    .hero-panel {
+      margin-top: 23px; padding: 18px; border-radius: var(--radius); background: #111827; color: #fff;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; box-shadow: var(--shadow);
+    }
+    .hero-panel strong { display: block; font-size: 15px; }
+    .hero-panel span { color: #cbd2dc; font-size: 12px; display: block; margin-top: 3px; }
+    .hero-number { font-size: 28px; line-height: 1; font-weight: 850; letter-spacing: -.05em; white-space: nowrap; }
+    .nav-pills { display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 18px; scrollbar-width: none; }
+    .nav-pills::-webkit-scrollbar { display: none; }
+    .nav-pills a {
+      flex: 0 0 auto; text-decoration: none; color: #48515e; background: var(--surface);
+      border: 1px solid var(--line); padding: 9px 13px; border-radius: 999px; font-size: 12px; font-weight: 750;
+    }
+    .nav-pills a:hover, .nav-pills a:focus-visible { color: var(--accent); border-color: #b9cdfd; outline: none; }
+    main { padding-bottom: 70px; }
+    section { margin: 12px 0 22px; scroll-margin-top: 82px; }
+    .section-head { margin: 0 0 14px; display: flex; align-items: end; justify-content: space-between; gap: 14px; }
+    .section-kicker { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; font-weight: 850; }
+    h2 { font-size: clamp(21px, 5vw, 27px); letter-spacing: -.04em; margin: 3px 0 0; line-height: 1.15; }
+    .section-count { color: var(--muted); font-size: 11px; font-weight: 750; white-space: nowrap; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px; }
+    .card + .card { margin-top: 12px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+    .word-card { padding: 14px; background: var(--surface-2); border-radius: 15px; min-width: 0; }
+    .word-card .word { font-size: 17px; font-weight: 850; letter-spacing: -.025em; overflow-wrap: anywhere; }
+    .word-card .meaning { color: var(--muted); font-size: 12px; margin-top: 1px; }
+    .tag { display: inline-flex; align-items: center; gap: 5px; border-radius: 999px; background: var(--accent-soft); color: #1d4db5; padding: 5px 9px; font-size: 10px; font-weight: 850; }
+    .subject-list { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    .subject-row { display: flex; align-items: center; justify-content: space-between; gap: 9px; padding: 12px 13px; background: var(--surface-2); border-radius: 13px; }
+    .subject-row strong { font-size: 15px; }
+    .subject-row span { color: var(--muted); font-size: 12px; text-align: right; }
+    .note { margin-top: 13px; background: #f7f8fa; border-left: 3px solid #9aa4b2; padding: 12px 14px; border-radius: 0 12px 12px 0; color: #505966; font-size: 12px; }
+    .note strong { color: var(--text); }
+    .rule-card { background: #111827; color: white; border-radius: var(--radius); padding: 18px; }
+    .rule-card p { color: #cbd2dc; font-size: 13px; margin: 6px 0 0; }
+    .rule-flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
+    .rule-chip { background: #263246; border: 1px solid #39465a; padding: 9px 12px; border-radius: 10px; font-weight: 850; font-size: 15px; }
+    .rule-plus { color: #a9b4c4; font-weight: 800; }
+    .rule-result { background: #eaf1ff; color: #1748a5; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 15px; }
+    table { border-collapse: collapse; width: 100%; min-width: 490px; background: white; }
+    th, td { padding: 12px 13px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 12px; }
+    th { background: #f6f7f9; color: #596270; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+    tr:last-child td { border-bottom: 0; }
+    td strong { font-size: 13px; }
+    .negative { color: #1748a5; font-weight: 850; }
+    .examples { display: grid; gap: 10px; }
+    .example { border: 1px solid var(--line); background: var(--surface); border-radius: 15px; padding: 14px; }
+    .example-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+    .example-label { font-size: 10px; color: var(--muted); font-weight: 800; text-transform: uppercase; letter-spacing: .09em; }
+    .example-word { font-weight: 850; font-size: 17px; letter-spacing: -.02em; }
+    .example-translation { color: var(--muted); font-size: 12px; margin-top: 3px; }
+    .example-arrow { color: #9aa3af; font-size: 18px; }
+    .ortho-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    .ortho-item { padding: 13px; border-radius: 14px; background: var(--surface-2); }
+    .ortho-item strong { display: block; font-size: 15px; }
+    .ortho-item span { color: var(--muted); font-size: 11px; }
+    .quiz-card { padding: 0; overflow: hidden; }
+    .quiz-top { padding: 18px; background: #111827; color: #fff; }
+    .quiz-topline { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+    .quiz-top small { color: #cbd2dc; font-size: 11px; font-weight: 750; }
+    .quiz-top h3 { font-size: 21px; letter-spacing: -.04em; margin: 5px 0 0; }
+    .progress-track { height: 6px; background: #344054; border-radius: 99px; overflow: hidden; margin-top: 16px; }
+    .progress-fill { width: 0; height: 100%; background: #8fb2ff; border-radius: inherit; transition: width .25s ease; }
+    .quiz-body { padding: 18px; }
+    .question-count { font-size: 10px; color: var(--muted); font-weight: 850; text-transform: uppercase; letter-spacing: .1em; }
+    .question { font-size: 18px; line-height: 1.3; font-weight: 850; letter-spacing: -.025em; margin: 8px 0 15px; }
+    .answers { display: grid; gap: 9px; }
+    .answer-btn {
+      width: 100%; text-align: left; display: flex; align-items: center; gap: 11px; padding: 12px;
+      border: 1px solid var(--line); border-radius: 13px; background: #fff; color: var(--text); cursor: pointer;
+      font-size: 13px; font-weight: 700; transition: border-color .15s, background .15s;
+    }
+    .answer-btn:hover:not(:disabled) { border-color: #9bb7f5; background: #f8faff; }
+    .answer-letter { display: grid; place-items: center; flex: 0 0 26px; width: 26px; height: 26px; border-radius: 8px; background: var(--surface-2); color: #5b6471; font-size: 11px; font-weight: 900; }
+    .answer-btn.correct { border-color: #8ac9a5; background: var(--green-soft); }
+    .answer-btn.correct .answer-letter { background: #c9ecd7; color: #11683a; }
+    .answer-btn.wrong { border-color: #e4a1a1; background: var(--red-soft); }
+    .answer-btn.wrong .answer-letter { background: #f8d7d7; color: #a52e2e; }
+    .answer-btn:disabled { cursor: default; }
+    .feedback { margin-top: 13px; border-radius: 12px; padding: 12px 13px; font-size: 12px; display: none; }
+    .feedback.show { display: block; }
+    .feedback.good { background: var(--green-soft); color: #11683a; }
+    .feedback.bad { background: var(--red-soft); color: #9e3030; }
+    .quiz-actions { display: flex; gap: 9px; margin-top: 15px; }
+    .btn { border: 0; border-radius: 12px; padding: 12px 16px; font-size: 12px; font-weight: 850; cursor: pointer; }
+    .btn-primary { background: var(--accent); color: white; flex: 1; }
+    .btn-primary:disabled { opacity: .4; cursor: not-allowed; }
+    .btn-secondary { background: var(--surface-2); color: #343b45; }
+    .result { display: none; text-align: center; padding: 28px 18px; }
+    .result.show { display: block; }
+    .result-score { font-size: 48px; font-weight: 900; letter-spacing: -.07em; margin: 8px 0 0; }
+    .result p { color: var(--muted); font-size: 13px; margin: 5px auto 17px; max-width: 340px; }
+    .footer { text-align: center; padding: 10px 0 30px; color: var(--muted); font-size: 11px; }
+    .back-top { display: inline-block; margin-top: 8px; text-decoration: none; color: var(--accent); font-weight: 800; }
+    @media (min-width: 700px) {
+      .hero { padding-top: 48px; }
+      .grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .examples { grid-template-columns: 1fr 1fr; }
+      .card { padding: 22px; }
+      .quiz-body { padding: 24px; }
+    }
+    @media (max-width: 420px) {
+      .container, .topbar-inner { width: min(100% - 24px, 860px); }
+      .hero { padding-top: 26px; }
+      .hero-panel { padding: 15px; }
+      .grid { gap: 8px; }
+      .word-card { padding: 12px; }
+      .word-card .word { font-size: 15px; }
+      .subject-list, .ortho-grid { gap: 8px; }
+      .subject-row { display: block; padding: 11px; }
+      .subject-row span { display: block; text-align: left; margin-top: 1px; }
+      .section-head { align-items: start; }
+      .section-count { padding-top: 5px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar" id="inicio">
+    <div class="topbar-inner">
+      <div class="brand"><div class="brand-mark">Ñ</div><div>GUARANÍ<small>Guía de estudio</small></div></div>
+      <a class="top-link" href="#quiz">Ir al quiz ↗</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="hero">
+      <div class="eyebrow">Repaso práctico</div>
+      <h1>Aprendé lo esencial.<br>Practicá hasta dominarlo.</h1>
+      <p>Verbos básicos, pronombres y, sobre todo, cómo formar oraciones negativas en guaraní. Leé los ejemplos y después comprobá cuánto recordás.</p>
+      <div class="hero-panel">
+        <div><strong>Tu objetivo de estudio</strong><span>Reconocer palabras y escribir correctamente la forma negativa.</span></div>
+        <div class="hero-number">20+<span style="font-size:10px;display:block;text-align:right;color:#cbd2dc;letter-spacing:.08em">PREGUNTAS</span></div>
+      </div>
+    </div>
+
+    <nav class="nav-pills" aria-label="Secciones">
+      <a href="#verbos">Verbos</a>
+      <a href="#pronombres">Pronombres</a>
+      <a href="#negacion">Negación</a>
+      <a href="#ejemplos">Ejemplos</a>
+      <a href="#ortografia">Ortografía</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+
+    <main>
+      <section id="verbos">
+        <div class="section-head"><div><div class="section-kicker">01 · Vocabulario</div><h2>Verbos básicos · Ñe'ẽtéva</h2></div><div class="section-count">7 grupos</div></div>
+        <div class="card">
+          <div class="grid">
+            <div class="word-card"><div class="word">Amba'apo</div><div class="meaning">Trabajar</div></div>
+            <div class="word-card"><div class="word">Ajapo</div><div class="meaning">Hacer</div></div>
+            <div class="word-card"><div class="word">Ake</div><div class="meaning">Dormir</div></div>
+            <div class="word-card"><div class="word">Okaru</div><div class="meaning">Comer</div></div>
+            <div class="word-card"><div class="word">Oho</div><div class="meaning">Ir</div></div>
+            <div class="word-card"><div class="word">Añembosarái</div><div class="meaning">Jugar / divertirse</div></div>
+            <div class="word-card"><div class="word">Astudia</div><div class="meaning">Estudiar</div></div>
+            <div class="word-card"><div class="word">Añembo'e</div><div class="meaning">Estudiar / aprender</div></div>
+          </div>
+          <div class="note"><strong>Para recordar:</strong> aprendé cada verbo junto con su significado. Más adelante vas a reconocer algunos de ellos dentro de oraciones negativas.</div>
+        </div>
+      </section>
+
+      <section id="pronombres">
+        <div class="section-head"><div><div class="section-kicker">02 · Sujetos</div><h2>Pronombres clave</h2></div><div class="section-count">5 formas</div></div>
+        <div class="card">
+          <div class="subject-list">
+            <div class="subject-row"><strong>Che</strong><span>Yo</span></div>
+            <div class="subject-row"><strong>Ha'e</strong><span>Él / ella</span></div>
+            <div class="subject-row"><strong>Ha'ekuéra</strong><span>Ellos / ellas</span></div>
+            <div class="subject-row"><strong>Ore</strong><span>Nosotros, sin incluirte</span></div>
+            <div class="subject-row"><strong>Peẽ</strong><span>Ustedes</span></div>
+          </div>
+          <div class="note"><strong>Ojo con “Ore”:</strong> es un “nosotros” excluyente; no incluye a la persona con quien estás hablando.</div>
+        </div>
+      </section>
+
+      <section id="negacion">
+        <div class="section-head"><div><div class="section-kicker">03 · Tema principal</div><h2>La forma negativa · Mbotovéva</h2></div><span class="tag">MUY IMPORTANTE</span></div>
+        <div class="rule-card">
+          <div class="eyebrow" style="color:#9bbaff">La idea principal</div>
+          <div style="font-size:20px;font-weight:900;letter-spacing:-.035em;margin-top:5px">Prefijo negativo + verbo + terminación -i</div>
+          <p>Para negar, se coloca una forma negativa al comienzo del verbo y, generalmente, aparece una <strong style="color:#fff">-i</strong> al final. El prefijo puede variar según la palabra.</p>
+          <div class="rule-flow"><span class="rule-chip">nd- / n-</span><span class="rule-plus">+</span><span class="rule-chip">verbo</span><span class="rule-plus">+</span><span class="rule-chip">-i</span><span class="rule-plus">→</span><span class="rule-chip rule-result">negación</span></div>
+        </div>
+        <div class="card" style="margin-top:12px">
+          <div class="section-head" style="margin-bottom:10px"><div><div class="section-kicker">Tabla de estudio</div><h2 style="font-size:18px">Afirmativo → negativo</h2></div></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Afirmativo</th><th>Negativo</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Aha</strong></td><td class="negative">Ndahái</td><td>No voy</td></tr>
+                <tr><td><strong>Ajapo</strong></td><td class="negative">Ndajapói</td><td>No hago</td></tr>
+                <tr><td><strong>Amba'apo</strong></td><td class="negative">Namba'apói / Ndamba'apói</td><td>No trabajo</td></tr>
+                <tr><td><strong>Ake</strong></td><td class="negative">Ndakéi</td><td>No duermo</td></tr>
+                <tr><td><strong>Okaru</strong></td><td class="negative">Nokarúi</td><td>No come / No comen</td></tr>
+                <tr><td><strong>Oho</strong></td><td class="negative">Nohói</td><td>No va</td></tr>
+                <tr><td><strong>Opu'ã</strong></td><td class="negative">Nopu'ãi</td><td>No se levanta</td></tr>
+                <tr><td><strong>Oñembosarái</strong></td><td class="negative">Noñembosarái / Ndoñembosarái</td><td>No juega</td></tr>
+                <tr><td><strong>Osẽ</strong></td><td class="negative">Nosẽi</td><td>No sale</td></tr>
+                <tr><td><strong>Ohecha</strong></td><td class="negative">Nohechái</td><td>No ve</td></tr>
+                <tr><td><strong>Ojehu</strong></td><td class="negative">Ndojéhui / Ndojehúi</td><td>No pasa / No ocurre</td></tr>
+                <tr><td><strong>Oñe'ẽ</strong></td><td class="negative">Noñe'ẽi</td><td>No habla</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note"><strong>Importante:</strong> estudiá las formas completas tal como aparecen en tu material. No todas empiezan exactamente igual: podés encontrar <em>nda-</em>, <em>na-</em>, <em>no-</em> o <em>ndo-</em>.</div>
+        </div>
+      </section>
+
+      <section id="ejemplos">
+        <div class="section-head"><div><div class="section-kicker">04 · Aplicación</div><h2>Ejemplos para entender</h2></div></div>
+        <div class="examples">
+          <div class="example"><div class="example-top"><div><div class="example-label">Afirmativo</div><div class="example-word">Ajapo</div><div class="example-translation">Hago</div></div><div class="example-arrow">→</div></div></div>
+          <div class="example"><div class="example-top"><div><div class="example-label">Negativo</div><div class="example-word negative">Ndajapói</div><div class="example-translation">No hago</div></div><span class="tag">-i final</span></div></div>
+          <div class="example"><div class="example-top"><div><div class="example-label">Afirmativo</div><div class="example-word">Oho</div><div class="example-translation">Va</div></div><div class="example-arrow">→</div></div></div>
+          <div class="example"><div class="example-top"><div><div class="example-label">Negativo</div><div class="example-word negative">Nohói</div><div class="example-translation">No va</div></div><span class="tag">no- + -i</span></div></div>
+          <div class="example"><div class="example-top"><div><div class="example-label">Afirmativo</div><div class="example-word">Ohecha</div><div class="example-translation">Ve</div></div><div class="example-arrow">→</div></div></div>
+          <div class="example"><div class="example-top"><div><div class="example-label">Negativo</div><div class="example-word negative">Nohechái</div><div class="example-translation">No ve</div></div><span class="tag">no- + -i</span></div></div>
+        </div>
+        <div class="note"><strong>Cómo practicar:</strong> tapá la columna de los negativos, mirá el afirmativo e intentá recordar la forma negativa y su traducción. Después comprobá en la tabla.</div>
+      </section>
+
+      <section id="ortografia">
+        <div class="section-head"><div><div class="section-kicker">05 · Antes del examen</div><h2>Detalles de escritura</h2></div></div>
+        <div class="card">
+          <div class="ortho-grid">
+            <div class="ortho-item"><strong>La -i final</strong><span>Revisá que esté presente cuando corresponde en la forma negativa.</span></div>
+            <div class="ortho-item"><strong>Las tildes</strong><span>Respetá las tildes de cada palabra: por ejemplo, Ndahái y Ndajapói.</span></div>
+            <div class="ortho-item"><strong>El apóstrofo (')</strong><span>No lo omitas: aparece en palabras como Amba'apo y Oñe'ẽ.</span></div>
+            <div class="ortho-item"><strong>Vocales nasales</strong><span>Prestá atención a ã, ẽ, ĩ, õ, ũ e ỹ.</span></div>
+          </div>
+          <div class="note"><strong>Último repaso:</strong> antes de entregar, leé cada respuesta y comprobá el prefijo, la terminación, las tildes y los apóstrofos.</div>
+        </div>
+      </section>
+
+      <section id="quiz">
+        <div class="section-head"><div><div class="section-kicker">06 · Comprobá lo que sabés</div><h2>Quiz de práctica</h2></div><div class="section-count">10 preguntas por ronda</div></div>
+        <div class="card quiz-card">
+          <div class="quiz-top">
+            <div class="quiz-topline"><small id="quiz-status">RONDA DE PRÁCTICA</small><small id="quiz-score-live">0 correctas</small></div>
+            <h3>¿Cuánto recordás?</h3>
+            <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+          </div>
+          <div class="quiz-body" id="quiz-play">
+            <div class="question-count" id="question-count">Pregunta 1 de 10</div>
+            <div class="question" id="question-text">Cargando pregunta…</div>
+            <div class="answers" id="answers"></div>
+            <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+            <div class="quiz-actions"><button class="btn btn-secondary" id="restart-small" type="button">Reiniciar</button><button class="btn btn-primary" id="next-btn" type="button" disabled>Siguiente</button></div>
+          </div>
+          <div class="result" id="quiz-result" aria-live="polite">
+            <div class="eyebrow">Ronda terminada</div>
+            <div class="result-score" id="result-score">0/10</div>
+            <p id="result-message">Buen trabajo. Volvé a practicar para afianzar lo aprendido.</p>
+            <button class="btn btn-primary" id="play-again" type="button">Nueva ronda aleatoria</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">Guía de repaso de guaraní · Hecha para estudiar desde el celular<br><a class="back-top" href="#inicio">Volver al inicio ↑</a></footer>
+  </div>
+
+  <script>
+    const questionBank = [
+      { q: '¿Qué significa “Amba’apo”?', a: ['Dormir', 'Trabajar', 'Comer', 'Ir'], c: 1, e: 'Amba’apo significa trabajar.' },
+      { q: '¿Qué significa “Ajapo”?', a: ['Hacer', 'Jugar', 'Salir', 'Hablar'], c: 0, e: 'Ajapo significa hacer.' },
+      { q: '¿Cuál es la traducción de “Ake”?', a: ['Comer', 'Aprender', 'Dormir', 'Ver'], c: 2, e: 'Ake significa dormir.' },
+      { q: '¿Qué significa “Okaru”?', a: ['Va', 'Come', 'Trabaja', 'Se levanta'], c: 1, e: 'Okaru significa comer.' },
+      { q: '¿Qué significa “Oho”?', a: ['Ir', 'Hacer', 'Dormir', 'Jugar'], c: 0, e: 'Oho significa ir.' },
+      { q: '“Añembosarái” significa…', a: ['No habla', 'Jugar o divertirse', 'No sale', 'Estudiar'], c: 1, e: 'Añembosarái significa jugar o divertirse.' },
+      { q: '¿Cuál de estas palabras significa “yo”?', a: ['Peẽ', 'Ore', 'Che', 'Ha’ekuéra'], c: 2, e: 'Che significa yo.' },
+      { q: '¿Qué significa “Ha’e”?', a: ['Él / ella', 'Ustedes', 'Nosotros', 'Ellos / ellas'], c: 0, e: 'Ha’e significa él o ella.' },
+      { q: '¿Qué significa “Ha’ekuéra”?', a: ['Yo', 'Ellos / ellas', 'Ustedes', 'Él / ella'], c: 1, e: 'Ha’ekuéra significa ellos o ellas.' },
+      { q: '¿Qué característica tiene “Ore”?', a: ['Significa ustedes', 'Incluye siempre a quien escucha', 'Es nosotros excluyente', 'Significa él'], c: 2, e: 'Ore significa nosotros sin incluir a la persona con quien se habla.' },
+      { q: '¿Qué significa “Peẽ”?', a: ['Ustedes', 'Yo', 'Él / ella', 'Ellos'], c: 0, e: 'Peẽ significa ustedes.' },
+      { q: '¿Cuál es la forma negativa de “Aha” en el resumen?', a: ['Nohói', 'Ndahái', 'Ndajapói', 'Nosẽi'], c: 1, e: 'Aha → Ndahái: no voy.' },
+      { q: '¿Cómo se niega “Ajapo”?', a: ['Nohechái', 'Ndakéi', 'Ndajapói', 'Nopu’ãi'], c: 2, e: 'Ajapo → Ndajapói: no hago.' },
+      { q: '¿Cuál es la forma negativa de “Ake”?', a: ['Ndakéi', 'Nokarúi', 'Ndahái', 'Noñe’ẽi'], c: 0, e: 'Ake → Ndakéi: no duermo.' },
+      { q: '“Nokarúi” significa…', a: ['No va', 'No come / no comen', 'No sale', 'No trabaja'], c: 1, e: 'Okaru → Nokarúi: no come o no comen.' },
+      { q: '¿Cuál es la forma negativa de “Oho”?', a: ['Ndajapói', 'Nohói', 'Nosẽi', 'Nopu’ãi'], c: 1, e: 'Oho → Nohói: no va.' },
+      { q: '¿Qué forma negativa corresponde a “Opu’ã”?', a: ['Nohechái', 'Noñe’ẽi', 'Nopu’ãi', 'Ndahái'], c: 2, e: 'Opu’ã → Nopu’ãi: no se levanta.' },
+      { q: '¿Cuál es la forma negativa de “Osẽ”?', a: ['Nosẽi', 'Nohói', 'Ndakéi', 'Nokarúi'], c: 0, e: 'Osẽ → Nosẽi: no sale.' },
+      { q: '“Nohechái” significa…', a: ['No habla', 'No ve', 'No juega', 'No ocurre'], c: 1, e: 'Ohecha → Nohechái: no ve.' },
+      { q: '¿Cuál es la forma negativa de “Oñe’ẽ”?', a: ['Ndojehúi', 'Namba’apói', 'Noñe’ẽi', 'Ndahái'], c: 2, e: 'Oñe’ẽ → Noñe’ẽi: no habla.' },
+      { q: '¿Qué se debe revisar al escribir una forma negativa?', a: ['Solo la primera letra', 'El prefijo, la -i final y las tildes', 'Solo la traducción', 'Que no tenga apóstrofos'], c: 1, e: 'Revisá el prefijo negativo, la terminación -i cuando corresponde y la ortografía.' },
+      { q: '¿Cuál de estas es una vocal nasal?', a: ['á', 'é', 'ẽ', 'ó'], c: 2, e: 'ẽ es una vocal nasal. También están ã, ĩ, õ, ũ e ỹ.' },
+      { q: '¿Qué signo aparece en palabras como “Amba’apo”?', a: ['Guion', 'Apóstrofo', 'Coma', 'Signo de pregunta'], c: 1, e: 'El apóstrofo es parte de la escritura y no debe omitirse.' },
+      { q: '¿Cuál es una variante negativa que aparece para “Amba’apo”?', a: ['Namba’apói', 'Ndahái', 'Nohói', 'Nosẽi'], c: 0, e: 'El resumen incluye Namba’apói y Ndamba’apói.' },
+      { q: '¿Qué significa “Ojehu”?', a: ['Hablar', 'Pasar / ocurrir', 'Trabajar', 'Dormir'], c: 1, e: 'Ojehu significa pasar u ocurrir.' },
+      { q: '¿Cuál es la forma negativa de “Ojehu” según el resumen?', a: ['Ndojéhui / Ndojehúi', 'Noñe’ẽi', 'Ndajapói', 'Nokarúi'], c: 0, e: 'El resumen presenta las formas Ndojéhui y Ndojehúi.' },
+      { q: '“Astudia” y “Añembo’e” se relacionan con…', a: ['Comer', 'Estudiar / aprender', 'Ir', 'Jugar'], c: 1, e: 'Ambas formas aparecen en el resumen con el sentido de estudiar o aprender.' },
+      { q: '¿Qué significa “Nohói”?', a: ['No voy', 'No hace', 'No va', 'No duerme'], c: 2, e: 'Oho → Nohói: no va.' }
+    ];
+
+    const QUESTIONS_PER_ROUND = 10;
+    let round = [];
+    let current = 0;
+    let score = 0;
+    let answered = false;
+
+    const $ = (id) => document.getElementById(id);
+    function shuffle(items) {
+      const arr = [...items];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+    function startQuiz() {
+      round = shuffle(questionBank).slice(0, QUESTIONS_PER_ROUND).map(item => {
+        const choices = item.a.map((text, index) => ({ text, correct: index === item.c }));
+        const mixed = shuffle(choices);
+        return { ...item, mixed, correctText: item.a[item.c] };
+      });
+      current = 0;
+      score = 0;
+      answered = false;
+      $('quiz-play').style.display = 'block';
+      $('quiz-result').classList.remove('show');
+      $('quiz-score-live').textContent = '0 correctas';
+      renderQuestion();
+    }
+    function renderQuestion() {
+      answered = false;
+      const item = round[current];
+      $('question-count').textContent = `Pregunta ${current + 1} de ${QUESTIONS_PER_ROUND}`;
+      $('question-text').textContent = item.q;
+      $('quiz-status').textContent = `PREGUNTA ${current + 1} / ${QUESTIONS_PER_ROUND}`;
+      $('progress-fill').style.width = `${(current / QUESTIONS_PER_ROUND) * 100}%`;
+      $('feedback').className = 'feedback';
+      $('feedback').textContent = '';
+      $('next-btn').disabled = true;
+      $('next-btn').textContent = current === QUESTIONS_PER_ROUND - 1 ? 'Ver resultado' : 'Siguiente';
+      $('answers').innerHTML = '';
+      item.mixed.forEach((choice, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'answer-btn';
+        button.innerHTML = `<span class="answer-letter">${String.fromCharCode(65 + index)}</span><span></span>`;
+        button.querySelector('span:last-child').textContent = choice.text;
+        button.addEventListener('click', () => chooseAnswer(index));
+        $('answers').appendChild(button);
+      });
+    }
+    function chooseAnswer(index) {
+      if (answered) return;
+      answered = true;
+      const item = round[current];
+      const selected = item.mixed[index];
+      const buttons = [...$('answers').querySelectorAll('button')];
+      buttons.forEach((button, i) => {
+        button.disabled = true;
+        if (item.mixed[i].correct) button.classList.add('correct');
+        else if (i === index) button.classList.add('wrong');
+      });
+      const feedback = $('feedback');
+      if (selected.correct) {
+        score++;
+        feedback.className = 'feedback show good';
+        feedback.textContent = `¡Correcto! ${item.e}`;
+      } else {
+        feedback.className = 'feedback show bad';
+        feedback.textContent = `No es esa. La respuesta correcta es “${item.correctText}”. ${item.e}`;
+      }
+      $('quiz-score-live').textContent = `${score} ${score === 1 ? 'correcta' : 'correctas'}`;
+      $('progress-fill').style.width = `${((current + 1) / QUESTIONS_PER_ROUND) * 100}%`;
+      $('next-btn').disabled = false;
+    }
+    function nextQuestion() {
+      if (!answered) return;
+      if (current < QUESTIONS_PER_ROUND - 1) {
+        current++;
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    }
+    function showResult() {
+      $('quiz-play').style.display = 'none';
+      $('quiz-result').classList.add('show');
+      $('result-score').textContent = `${score}/${QUESTIONS_PER_ROUND}`;
+      let message;
+      if (score === 10) message = '¡Excelente! Dominás este repaso. Probá otra ronda para seguir practicando.';
+      else if (score >= 7) message = '¡Muy bien! Repasá las preguntas que te costaron y volvé a intentarlo.';
+      else if (score >= 5) message = 'Vas avanzando. Volvé a leer la tabla de negaciones y practicá otra ronda.';
+      else message = 'Tomate unos minutos para repasar el vocabulario y las formas negativas. Después intentá de nuevo.';
+      $('result-message').textContent = message;
+      $('quiz-status').textContent = 'RONDA TERMINADA';
+      $('progress-fill').style.width = '100%';
+    }
+    $('next-btn').addEventListener('click', nextQuestion);
+    $('restart-small').addEventListener('click', startQuiz);
+    $('play-again').addEventListener('click', startQuiz);
+    startQuiz();
+  </script>
+</body>
+</html>
